@@ -17,14 +17,11 @@ app.component('review-form', {
         <option>2</option>
         <option>1</option>
       </select>
-  
-      <!-- solution -->
       <label for="recommend">Would you recommend this product?</label>
       <select id="recommend" v-model="recommend">
         <option>Yes</option>
         <option>No</option>
-      </select>
-      <!-- solution -->   
+      </selec   
   
       <input class="button" type="submit" value="Submit">  
   
