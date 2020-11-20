@@ -38,41 +38,27 @@ app.component('product-display', {
           v-on:click="addToCart">
           Add to Cart
         </button>
-
-        <!-- solution -->
-        <button 
-        class="button" 
-        :class="{ disabledButton: !inStock }" 
-        :disabled="!inStock" 
-        @click="removeFromCart">
-        Remove Item
-      </button>
-      <!-- solution -->
-
       </div>
     </div>
+    <review-list v-if="reviews.length" :reviews="reviews"></review-list>
     <review-form @review-submitted="addReview"></review-form>
-    <review-list v-if="reviews.length" :reviews="review"></review-list>
   </div>`,
   data() {
     return {
         product: 'Socks',
-        brand: 'Vue Mastery',
+        brand: 'Cool',
         selectedVariant: 0,
         details: ['50% cotton', '30% wool', '20% polyester'],
         variants: [
           { id: 2234, color: 'green', image: './assets/images/socks_green.jpg', quantity: 50 },
           { id: 2235, color: 'blue', image: './assets/images/socks_blue.jpg', quantity: 0 },
         ],
-        reviews = []
+        reviews: []
     }
   },
   methods: {
       addToCart() {
           this.$emit('add-to-cart', this.variants[this.selectedVariant].id)
-      },
-      removeFromCart() {
-        this.$emit('remove-from-cart', this.variants[this.selectedVariant].id)
       },
       updateVariant(index) {
           this.selectedVariant = index
