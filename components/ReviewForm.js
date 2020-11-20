@@ -34,7 +34,10 @@ app.component('review-form', {
                 review: this.review,
                 rating: this.rating
             }
-            this.$emit('review-submited')
+            this.$emit('review-submited', 'product-review')
+            this.name = ''
+            this.review = ''
+            this.rating = null
         }
     }
   })
