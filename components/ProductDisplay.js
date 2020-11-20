@@ -52,6 +52,7 @@ app.component('product-display', {
       </div>
     </div>
     <review-form @review-submitted="addReview"></review-form>
+    <review-list v-if="reviews.length" :reviews="review"></review-list>
   </div>`,
   data() {
     return {
@@ -62,20 +63,22 @@ app.component('product-display', {
         variants: [
           { id: 2234, color: 'green', image: './assets/images/socks_green.jpg', quantity: 50 },
           { id: 2235, color: 'blue', image: './assets/images/socks_blue.jpg', quantity: 0 },
-        ]
+        ],
+        reviews = []
     }
   },
   methods: {
       addToCart() {
           this.$emit('add-to-cart', this.variants[this.selectedVariant].id)
       },
-      // solution
       removeFromCart() {
         this.$emit('remove-from-cart', this.variants[this.selectedVariant].id)
       },
-      // solution
       updateVariant(index) {
           this.selectedVariant = index
+      },
+      addReview(review) {
+        this.reviews.push(review)
       }
   },
   computed: {

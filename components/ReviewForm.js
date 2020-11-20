@@ -27,7 +27,7 @@ app.component('review-form', {
         rating: null
       }
     },
-    moethods: {
+    methods: {
         onSubmit() {
             let productReview = {
                 name: this.name,
