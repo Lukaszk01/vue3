@@ -21,7 +21,7 @@ app.component('review-form', {
       <select id="recommend" v-model="recommend">
         <option>Yes</option>
         <option>No</option>
-      </selec   
+      </select>
   
       <input class="button" type="submit" value="Submit">  
   
@@ -51,7 +51,6 @@ app.component('review-form', {
   
         }
         this.$emit('review-submitted', productReview)
-  
         this.name = ''
         this.review = ''
         this.rating = null
